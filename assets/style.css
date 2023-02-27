@@ -116,6 +116,7 @@ button[disabled] {
   border-radius: 6px;
   resize: none;
   overflow: hidden;
+  user-select: all;
 }
 
 @media (max-width: 690px) {
