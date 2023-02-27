@@ -42,36 +42,51 @@ function params() {
   // }
   if (lwCase && !upCase && !numb && !spcChar) {
     passSet = lwCaseChar;
+    alert("Your password will contain: Lowercase letters.");
   } else if (!lwCase && upCase && !numb && !spcChar) {
     passSet = upCaseChar;
+    alert("Your password will contain: Uppercase letters.");
   } else if (!lwCase && !upCase && numb && !spcChar) {
     passSet = numbChar; 
+    alert("Your password will contain: Numbers.");
   } else if (!lwCase && !upCase && !numb && spcChar) {
     passSet = spcCharSet;
+    alert("Your password will contain: Special characters.");
   } else if (lwCase && upCase && !numb && !spcChar) {
     passSet = lwCaseChar.concat(upCaseChar);
+    alert("Your password will contain: Lowercase letters and uppercase letters.");
   } else if (lwCase && !upCase && numb && !spcChar) {
     passSet = lwCaseChar.concat(numbChar);
+    alert("Your password will contain: Lowercase letters and numbers.");
   } else if (lwCase && !upCase && !numb && spcChar) {
     passSet = lwCaseChar.concat(spcCharSet);
+    alert("Your password will contain: Lowercase letters and special characters.");
   } else if (!lwCase && upCase && numb && !spcChar) {
     passSet = upCaseChar.concat(numbChar);
+    alert("Your password will contain: Uppercase letters and numbers.");
   } else if (!lwCase && upCase && !numb && spcChar) {
     passSet = upCaseChar.concat(spcCharSet);
+    alert("Your password will contain: Uppercase letters and special characters.");
   } else if (!lwCase && !upCase && numb && spcChar) {
     passSet = numbChar.concat(spcCharSet);
+    alert("Your password will contain: Numbers and special characters.");
   } else if (lwCase && upCase && numb && !spcChar) {
     passSet = lwCaseChar.concat(upCaseChar, numbChar);
+    alert("Your password will contain: Lowercase letters, uppercase letters, and numbers.");
   } else if (lwCase && upCase && !numb && spcChar) {
     passSet = lwCaseChar.concat(upCaseChar, spcCharSet);
+    alert("Your password will contain: Lowercase letters, uppercase letters, and special characters.");
   } else if (lwCase && !upCase && numb && spcChar) {
     passSet = lwCaseChar.concat(numbChar, spcCharSet);
+    alert("Your password will contain: Lowercase letters, numbers, and special characters.");
   } else if (!lwCase && upCase && numb && spcChar) {
     passSet = upCaseChar.concat(numbChar, spcCharSet);
+    alert("Your password will contain: Uppercase letters, numbers, and special characters.");
   } else if (lwCase && upCase && numb && spcChar) {
     passSet = lwCaseChar.concat(upCaseChar, numbChar, spcCharSet);
+    alert("Your password will contain: Lowercase letters, uppercase letters, numbers, and special characters.");
   } else {
-    alert("Must use at least one type of character.")
+    alert("Must use at least one type of character. Using only lowercase letters.")
     passSet = lwCaseChar;
   }
   return passSet
