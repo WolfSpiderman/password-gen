@@ -1,4 +1,3 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 var lwCase = true;
 var lwCaseChar = 'abcdefghijklmnopqrstuvwxyz';
@@ -12,8 +11,10 @@ var plength = 25;
 var passSet = [];
 var final = "";
 var passLength = 8;
+var copyClip = document.querySelector("#copyClip");
 
 function params() {
+  final = "";
   let lwCase = confirm("Confirm using lowercase letters?");
   let upCase = confirm("Confirm using uppercase letters?");
   let numb = confirm("Confirm using numbers?");
@@ -28,18 +29,7 @@ function params() {
   } else {
     passLength = parseInt(plength);
   }
-  // testing progress
-  console.log(lwCase, upCase, numb, spcChar, passLength);
 
-  // if (lwCase) {
-  //   passSet.push('abcdefghijklmnopqrstuvwxyz');
-  // } if (upCase) {
-  //   passSet.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-  // } if (numb) {
-  //   passSet.push('1234567890');
-  // } if (spcChar) {
-  //   passSet.push('!@#$%^&*');
-  // }
   if (lwCase && !upCase && !numb && !spcChar) {
     passSet = lwCaseChar;
     alert("Your password will contain: Lowercase letters.");
@@ -109,31 +99,16 @@ function writePassword() {
   console.log(passSet);
   console.log(final);
   passwordText.value = final;
+  
+  copyClip.addEventListener("click", function() {
+    passwordText.select();
+    passwordText.setSelectionRange(0, 99999); // For mobile devices
+  
+    navigator.clipboard.writeText(passwordText.value);
+  });
 }
 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-
-
-
-
-
-// program to generate random strings
-
-// declare all characters
-// const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-// function generateString(length) {
-//     let result = ' ';
-//     const charactersLength = characters.length;
-//     for ( let i = 0; i < length; i++ ) {
-//         result += characters.charAt(Math.floor(Math.random() * charactersLength));
-//     }
-
-//     return result;
-// }
-
-// console.log(generateString(5));
